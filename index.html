@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMM Lab · Image-Based Musculoskeletal Mechanics Lab</title>
+<meta name="description" content="The Image-Based Musculoskeletal Mechanics Lab (IMM) at UC Berkeley, led by Emily Y. Miller, PhD. Launching January 2027.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23003262'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='700' fill='%23FDB515' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
+<style>
+  :root{ --blue:#003262; --gold:#FDB515; --ink:#20272f; --muted:#5b6675; --line:#e6e9ee; --tint:#eef2f7; }
+  *{box-sizing:border-box;}
+  body{margin:0;color:var(--ink);background:#fff;line-height:1.65;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  h1,h2{font-family:Georgia,"Times New Roman",serif;line-height:1.15;margin:0;}
+  a{color:var(--blue);}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  /* Banner */
+  .banner{position:relative;min-height:460px;display:flex;align-items:center;justify-content:center;
+    text-align:center;color:#fff;overflow:hidden;
+    background:linear-gradient(135deg,#003262,#001b34);}
+  .banner::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(135deg,#003262,#001b34);
+    background-image:linear-gradient(rgba(0,28,54,.55),rgba(0,28,54,.55)),url('banner.jpg');
+    background-size:cover;background-position:center;}
+  .banner .inner{position:relative;padding:60px 24px;}
+  .banner h1{font-size:46px;color:#fff;}
+  .banner .sub{font-size:19px;color:#e7edf4;margin-top:12px;font-family:Georgia,serif;}
+  .banner .date{display:inline-block;margin-top:26px;padding:9px 20px;border-radius:30px;
+    background:var(--gold);color:#2a2100;font-weight:700;font-size:15px;letter-spacing:.02em;}
+  @media(max-width:600px){.banner h1{font-size:32px;}.banner{min-height:380px;}}
+
+  /* Body */
+  section{padding:52px 0;}
+  .lead{font-size:18px;color:var(--ink);}
+  h2{font-size:24px;color:var(--blue);margin-bottom:14px;}
+  .muted{color:var(--muted);}
+  .divide{border:none;border-top:1px solid var(--line);}
+
+  /* Director */
+  .director{display:flex;gap:30px;align-items:flex-start;}
+  @media(max-width:600px){.director{flex-direction:column;align-items:center;text-align:center;}}
+  .headshot{position:relative;width:180px;height:180px;flex:0 0 auto;border-radius:8px;overflow:hidden;
+    background:#fff;box-shadow:0 4px 14px rgba(0,50,98,.14);}
+  .headshot span{position:absolute;inset:0;z-index:0;display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-family:Georgia,serif;font-size:56px;font-weight:700;}
+  .headshot img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:contain;display:block;}
+  .director .bio h2{margin-bottom:10px;}
+  .director .bio .role{color:var(--muted);font-weight:600;margin-bottom:12px;}
+
+  /* Research areas */
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:12px 0 6px;}
+  @media(max-width:900px){.rgrid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.rgrid{grid-template-columns:1fr;}}
+  .rsub{font-family:Georgia,serif;color:var(--blue);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin:28px 0 2px;}
+  .rcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;
+    transition:transform .15s ease, box-shadow .15s ease;}
+  .rcard:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,50,98,.10);}
+  .rcard .thumb{height:150px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .rcard .thumb svg{width:132px;height:100px;}
+  .rcard .thumb img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .rcard .body{padding:18px 22px 22px;}
+  .rcard h3{font-family:Georgia,serif;color:var(--blue);font-size:18px;margin:0 0 8px;}
+  .rcard p{margin:0;color:var(--muted);font-size:14.5px;}
+
+  footer{background:var(--blue);color:#cdd8e6;padding:34px 0;text-align:center;font-size:15px;}
+  footer a{color:#fff;}
+  footer .name{font-family:Georgia,serif;color:#fff;font-size:18px;font-weight:700;}
+  footer .name span{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="inner">
+    <h1>IMM Lab</h1>
+    <div class="sub">Image-Based Musculoskeletal Mechanics Lab · UC Berkeley</div>
+    <div class="date">Launching January 2027</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="lead">The Image-Based Musculoskeletal Mechanics Lab (IMM) will open in January 2027 in
+      the Department of Mechanical Engineering at UC Berkeley. The lab
+      will investigate joint mechanics across scales, from cartilage deformation within the living
+      knee to whole-body movement captured with wearable and smartphone technologies. By integrating
+      imaging, biomechanics, engineering, and data science, we aim to understand how mechanical
+      loading contributes to musculoskeletal injury and diseases such as osteoarthritis, develop
+      tools for earlier detection of tissue degeneration and injury risk, and create strategies to
+      prevent injury, improve rehabilitation, and optimize human movement and athletic
+      performance.</p>
+  </div>
+</section>
+
+<hr class="divide">
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research areas</h2>
+
+    <div class="rsub">Methods</div>
+    <div class="rgrid">
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="knee_modulus.png" alt="In vivo cartilage stiffness map overlaid on knee MRI">
+        </div>
+        <div class="body">
+          <h3>Cartilage imaging &amp; elastography</h3>
+          <p>Mapping the mechanical state of cartilage inside the living knee with MRI, revealing change before it appears on conventional imaging.</p>
+        </div>
+      </div>
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="monocular.png" alt="Smartphone video converted into a musculoskeletal simulation with muscles and ground reaction forces">
+        </div>
+        <div class="body">
+          <h3>Markerless &amp; smartphone biomechanics</h3>
+          <p>Turning ordinary video into clinical-grade joint loading with physics-informed machine learning, for biomechanics at real-world scale.</p>
+        </div>
+      </div>
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="FE_knee.jpg" alt="Finite-element mesh model of knee cartilage">
+        </div>
+        <div class="body">
+          <h3>Mechanics &amp; finite-element modeling</h3>
+          <p>Image-based finite-element and inverse models that recover tissue properties and internal joint loads experiments can’t measure directly.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="rsub">Applications</div>
+    <div class="rgrid">
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="monocular2.png" alt="Smartphone video capture with real-time joint angle tracking">
+        </div>
+        <div class="body">
+          <h3>Osteoarthritis &amp; early detection</h3>
+          <p>Using tissue- and joint-scale mechanics to detect osteoarthritis earlier and track how it progresses.</p>
+        </div>
+      </div>
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="acl.png" alt="Motion capture and EMG sensors placed on the knee for ACL research">
+        </div>
+        <div class="body">
+          <h3>Injury &amp; rehabilitation</h3>
+          <p>Understanding how the knee loads and recovers after ACL injury, and designing rehabilitation that targets harmful loading.</p>
+        </div>
+      </div>
+
+      <div class="rcard">
+        <div class="thumb">
+          <img src="skeleton_sim.png" alt="Musculoskeletal simulation with ground reaction forces">
+        </div>
+        <div class="body">
+          <h3>Human &amp; athletic performance</h3>
+          <p>Scalable biomechanics to understand and optimize how people and athletes move, recover, and perform.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divide">
+
+<section>
+  <div class="wrap director">
+    <div class="headshot">
+      <img src="director.jpg?v=4" alt="Emily Y. Miller, PhD" onerror="this.style.display='none'">
+      <span aria-hidden="true">EM</span>
+    </div>
+    <div class="bio">
+      <h2>Personnel</h2>
+      <div class="role">Emily Y. Miller, PhD<br>Department of Mechanical Engineering, UC Berkeley</div>
+      <p class="muted">Dr. Emily Y. Miller is an incoming assistant professor in the Mechanical
+        Engineering Department at UC Berkeley. She earned her PhD in Biomedical Engineering at the
+        University of Colorado Boulder and is currently completing postdoctoral training in the
+        Movement Bioengineering Lab at the University of Utah. Her research seeks to transform how
+        musculoskeletal health is measured, from advanced MRI of cartilage to accessible tools that
+        quantify movement and joint loading in everyday settings.</p>
+      <p style="margin-top:14px;"><a href="https://scholar.google.com/citations?user=ssGVoO0AAAAJ&amp;hl=en" target="_blank" rel="noopener"><b>Google Scholar&nbsp;&rarr;</b></a></p>
+    </div>
+  </div>
+</section>
+
+<hr class="divide">
+
+<section>
+  <div class="wrap">
+    <h2>Join the lab</h2>
+    <p class="muted">The Image-Based Musculoskeletal Mechanics Lab (IMM) will open at UC
+      Berkeley in January 2027 and is recruiting PhD students, postdoctoral scholars, and
+      undergraduate researchers who are passionate about imaging, biomechanics, machine learning, and
+      musculoskeletal health. If you are interested in joining the lab, please email a brief
+      description of your research interests and your CV to
+      <a href="mailto:emily.y.miller@utah.edu?subject=Prospective%20lab%20member%2C%20IMM%20Lab"><b>emily.y.miller@utah.edu</b></a>.</p>
+    <p class="muted">Our lab will be built on collaboration, curiosity, and a commitment to
+      needs-driven science. We will welcome team members from diverse backgrounds
+      who are excited to work across traditional disciplinary boundaries. Whether your expertise is
+      in engineering, computer science, biology, physics, kinesiology, or another field, we believe
+      that the most impactful discoveries emerge when diverse perspectives come together to solve
+      meaningful problems.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="name">Berkeley <span>IMM</span> Lab</div>
+    <div style="margin-top:8px;">
+      Department of Mechanical Engineering · University of California, Berkeley
+    </div>
+    <div style="margin-top:6px;">
+      <a href="mailto:emily.y.miller@utah.edu">emily.y.miller@utah.edu</a> ·
+      <a href="https://scholar.google.com/citations?user=ssGVoO0AAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <div style="margin-top:14px;color:#9fb0c4;font-size:13px;">© 2026 · Site under construction</div>
+  </div>
+</footer>
+
+</body>
+</html>
